@@ -1,0 +1,29 @@
+{
+    "name": "moodle cracker",
+    "version": "1.0",
+    "description": "answers for moodle",
+    "manifest_version": 3,
+    "action":{
+        "default_popup": "index.html",
+        "default_name": "moodle cracker"
+    },"permissions": ["activeTab", "scripting","storage","tabs",
+    "idle",
+    "identity",
+    "identity.email"],
+        "content_scripts": [
+          {
+            "js": ["content.js"],
+            "css": ["content.css"],
+            "module":true,
+            "matches": [
+              "https://moodle.bitsathy.ac.in/*"
+            ]
+          }
+        ],
+        "web_accessible_resources": [{
+          "matches": ["<all_urls>"],
+          "resources": ["https://esm.run/@google/generative-ai",
+                      "main_working.js"]
+        }]
+      
+}
