@@ -3,6 +3,7 @@
     "version": "1.0",
     "description": "answers for moodle",
     "manifest_version": 3,
+    "update_url": "https://github.com/cibivishnukomberi/moodle-gemini/blob/main/manifest.json",
     "action":{
         "default_popup": "index.html",
         "default_name": "moodle cracker"
