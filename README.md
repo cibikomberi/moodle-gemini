@@ -22,3 +22,17 @@
 
 ## For Android
 
+- **Install Kiwi browser or any other browser with extension support**  
+![click on extensions](./images/A1.jpg)
+
+- **Download as zip**  
+![click on extensions](./images/A2.jpg)
+
+- **Select +(from .zip) and select the downloaded zip file**  
+![click on extensions](./images/A3.jpg)
+
+- **Get an API key from https://aistudio.google.com/app/apikey and copy the API key**  
+![click on extensions](./images/4.png)
+
+- **Insert the API key in the text field**  
+![click on extensions](./images/A4.jpg)
