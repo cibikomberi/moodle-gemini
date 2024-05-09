@@ -1,6 +1,6 @@
 {
     "name": "moodle-gemini",
-    "version": "1.0",
+    "version": "1.1",
     "description": "answers for moodle",
     "manifest_version": 3,
     "update_url": "https://github.com/cibivishnukomberi/moodle-gemini/blob/main/manifest.json",
