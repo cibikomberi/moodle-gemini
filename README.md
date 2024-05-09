@@ -6,19 +6,19 @@
 ![click on extensions](./images/0.png)
 
 - **Go to Extension Settings in your browser**  
-![click on extensions](./images/1.png)
+![Extension Settings](./images/1.png)
 
 - **Enable Developer mode**  
-![click on extensions](./images/2.png)
+![Developer mode](./images/2.png)
 
 - **Select load unpacked**  
-![click on extensions](./images/3.png)
+![load unpacked](./images/3.png)
 
 - **Get an API key from https://aistudio.google.com/app/apikey and copy the API key**  
-![click on extensions](./images/4.png)
+![API key generation](./images/4.png)
 
 - **Insert the API key in the text field**  
-![click on extensions](./images/5.png)
+![Text field for API key](./images/5.png)
 
 ## For Android
 
@@ -26,13 +26,20 @@
 ![click on extensions](./images/A1.jpg)
 
 - **Download as zip**  
-![click on extensions](./images/A2.jpg)
+![Extension Settings](./images/A2.jpg)
 
 - **Select +(from .zip) and select the downloaded zip file**  
-![click on extensions](./images/A3.jpg)
+![New extension options](./images/A3.jpg)
 
 - **Get an API key from https://aistudio.google.com/app/apikey and copy the API key**  
-![click on extensions](./images/4.png)
+![API key generation](./images/4.png)
 
 - **Insert the API key in the text field**  
-![click on extensions](./images/A4.jpg)
+![Text field for API key](./images/A4.jpg)
+
+# Disclaimer
+
+- **Answers are generated using Gemini AI. They might be inaccurate**  
+- **These answers are not the actual answers**  
+- **Images in question and answers are not considered while generating response**  
+- **Image support will be added shortly**  
