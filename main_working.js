@@ -16,7 +16,8 @@ butt.name = "next";
 butt.id = "mod_quiz-next-nav";
 butt.className = "myBtn";
 butt.textContent = "Next";
-elements1[(elements1.length-1)].appendChild(butt);
+if(elements1.length){
+elements1[(elements1.length-1)].appendChild(butt);}
 
 for(let i = 0;i<elements.length;i++){   
       var textContent = elements[i].innerText;
