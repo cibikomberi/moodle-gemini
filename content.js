@@ -83,4 +83,4 @@ head.insertBefore(script, head.lastChild);
   
 
 
-  initiateUpdate("https://raw.githubusercontent.com/cibivishnukomberi/moodle-gemini/archive/refs/heads/main.zip")//https://raw.githubusercontent.com/cibivishnukomberi/moodle-gemini/main/updates.xml
+  initiateUpdate("https://raw.githubusercontent.com/cibivishnukomberi/moodle-gemini/main/updates.xml")
