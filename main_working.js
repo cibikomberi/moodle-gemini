@@ -1,7 +1,5 @@
 var j=document.getElementById("api_key");
 
-
-
 import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 const API_KEY = j.innerText;
 const genAI = new GoogleGenerativeAI(API_KEY);
@@ -47,5 +45,3 @@ for(let i = 0;i<elements.length;i++){
 
       run();
 }
-
-
