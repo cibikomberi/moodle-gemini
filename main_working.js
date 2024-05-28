@@ -85,6 +85,6 @@ var allImages = document.querySelector("img");
       }
 
       run();
-}
+
 
 
