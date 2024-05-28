@@ -73,14 +73,18 @@ var allImages = document.querySelector("img");
     
     const text = response.text();
 
-    const textBox = document.createElement("P");
-    textBox.textContent = text;
-    textBox.style.padding = "5px";
-    textBox.style.color = "red";
-    textBox.style.fontWeight = "bold";
+            const textBox = document.createElement("P");
+            textBox.textContent = text;
+            textBox.style.padding = '5px';
+            textBox.style.color = 'red';
+            textBox.style.fontWeight = 'bold';
+            
+            textBox.style.fontFamily = 'sans-serif';
+            elements[i].appendChild(textBox);
+            
+      }
 
-    textBox.style.fontFamily = "sans-serif";
-    elements[0].appendChild(textBox);
-  }
+      run();
+}
 
-  run();
+
