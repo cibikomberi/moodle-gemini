@@ -19,34 +19,36 @@ if (elements1.length) {
 }
 
 
-const toDataURL = (url) =>
-  fetch(url)
-    .then((response) => response.blob())
-    .then(
-      (blob) =>
-        new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result);
-          reader.onerror = reject;
-          reader.readAsDataURL(blob);
-        })
-    );
-async function fileToGenerativePart(img) {
-  toDataURL(img.src).then((dataUrl) => {
-    let data = dataUrl;
-    let base64EncodedDataPromise = data.split(",")[1];
-    let fileType = data.split(",")[0].split(":")[1].split(";")[0];
-    let a = {
-      inlineData: { data: base64EncodedDataPromise, mimeType: fileType },
-    };
-    imageParts.push(a);
-  });
-}
 
-for (let i = 0; i < elements.length; i++) {
-  var allImages = elements[i].getElementsByTagName("img");
-  console.log(allImages);
+
+// for (let i = 0; i < elements.length; i++) {
+  
+// }
+
+
+var allImages = elements[0].getElementsByTagName("img");
   let imageParts = [];
+  const toDataURL = url => fetch(url)
+  .then(response => response.blob())
+  .then(blob => new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onloadend = () => resolve(reader.result)
+    reader.onerror = reject
+    reader.readAsDataURL(blob)
+  }))
+  async function fileToGenerativePart(img) {
+    console.log("img")
+    console.log(img)
+    toDataURL(img.src).then((dataUrl) => {
+      let data = dataUrl;
+      let base64EncodedDataPromise = data.split(",")[1];
+      let fileType = data.split(",")[0].split(":")[1].split(";")[0];
+      let a = {
+        inlineData: { data: base64EncodedDataPromise, mimeType: fileType },
+      };
+      imageParts.push(a);
+    });
+  }
   for (let i = 0; i < allImages.length; i++) {
     fileToGenerativePart(allImages[i]);
   }
@@ -59,20 +61,19 @@ for (let i = 0; i < elements.length; i++) {
 
   async function run() {
 
-    const prompt = "What is this image about?";
+    const prompt = "what is this image";
     console.log(prompt);
     let result;
     // if (allImages.length === 0) {
     //   result = await model.generateContent(prompt);
     // } else {
-
+      console.log("imageParts")
+      console.log(imageParts)
       result = await model.generateContent([prompt, ...imageParts]);
     // }
     const response = await result.response;
     
     const text = response.text();
-    console.log(i+" "+prompt + text );
-    console.log(imageParts);
 
     const textBox = document.createElement("P");
     textBox.textContent = text;
@@ -85,4 +86,3 @@ for (let i = 0; i < elements.length; i++) {
   }
 
   run();
-}
