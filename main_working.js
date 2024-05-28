@@ -38,13 +38,16 @@ if (elements1.length) {
 
 for (let i = 0; i < elements.length; i++) {
 
-    const allImages = elements[i].getElementsByTagName("img");
-    console.log("allImages");
+    const allImagesQ = elements[i].getElementsByTagName("img");
+    const allImagesO = elements1[i].getElementsByTagName("img");
+    const allImages = [...allImagesQ, ...allImagesO];
+    console.log("allImages "+i);
     console.log(allImages);
 
     let imageParts = [];
     async function fileToGenerativePart1() {
-    toDataURL(allImages[0].src)
+      
+      toDataURL(allImages[0].src)
         .then((dataUrl) => {
         let data = dataUrl;
         let base64EncodedDataPromise = data.split(",")[1];
@@ -53,26 +56,44 @@ for (let i = 0; i < elements.length; i++) {
             inlineData: { data: base64EncodedDataPromise, mimeType: fileType },
         };
         imageParts.push(a);
+        if(allImages.length>1){
+          for (let j = 1; j < allImages.length; j++) {
+            toDataURL(allImages[j].src)
+            .then((dataUrl) => {
+            let data = dataUrl;
+            let base64EncodedDataPromise = data.split(",")[1];
+            let fileType = data.split(",")[0].split(":")[1].split(";")[0];
+            let a = {
+              inlineData: { data: base64EncodedDataPromise, mimeType: fileType },
+            };
+            imageParts.push(a);})
+          }
+        }
         })
         .then(() => {
         console.log("HI");
         run();
         });
     }
-
-  fileToGenerativePart1();
-
+  if(allImages.length){
+    fileToGenerativePart1();}
+  else{
+    run();
+  }
   async function run() {
-    const prompt = "What's this image about";
+    const prompt = elements.innerText + elements1.innerText;
 
     console.log("imageParts");
     console.log(imageParts);
-    const result = await model.generateContent([prompt, ...imageParts]);
+    let result;
+    if(allImages.length){
+      result = await model.generateContent([prompt, ...imageParts]);}
+    else{
+      result = await model.generateContent(prompt);
+    }
     const response = await result.response;
     const text = response.text();
     console.log(text);
   }
 
-  let a = document.getElementById("asd");
-  a.onclick = run;
 }
