@@ -90,13 +90,14 @@ for (let i = 0; i < elements.length; i++) {
     const text = response.text();
     console.log(text);
 
-    function bold(text){
+    function bold(text) {
       var bold = /\*\*(.*?)\*\*/gm;
-      var html = text.replace(bold, '<strong> $1 </strong>');            
+      var html = text.replace(bold, "<strong> $1 </strong>");
       return html;
-  }
-      
-  var res = bold(text);
+    }
+
+
+    var res = bold(text);
 
     var output = document.createElement("DIV");
     output.style.color = "white";
@@ -119,5 +120,9 @@ for (let i = 0; i < elements.length; i++) {
     outVal.style.borderBottomRightRadius = "10px";
     outVal.innerHTML = res;
     output.appendChild(outVal);
+
+    var bol = outVal.getElementsByTagName("strong");
+    for(let k=0;k<bol.length;k++)
+      bol[k].style.fontSize = '18px';
   }
 }
