@@ -5,8 +5,6 @@ const API_KEY = j.innerText;
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-
-
 const toDataURL = (url) =>
   fetch(url)
     .then((response) => response.blob())
@@ -19,8 +17,6 @@ const toDataURL = (url) =>
           reader.readAsDataURL(blob);
         })
     );
-
-
 
 var elements = document.getElementsByClassName("qtext");
 var elements1 = document.getElementsByClassName("answer");
@@ -37,63 +33,91 @@ if (elements1.length) {
 }
 
 for (let i = 0; i < elements.length; i++) {
+  const p1 = elements[i].innerText;
+  const p2 = elements1[i].innerText;
 
-    const allImagesQ = elements[i].getElementsByTagName("img");
-    const allImagesO = elements1[i].getElementsByTagName("img");
-    const allImages = [...allImagesQ, ...allImagesO];
-    console.log("allImages "+i);
-    console.log(allImages);
+  const allImagesQ = elements[i].getElementsByTagName("img");
+  const allImagesO = elements1[i].getElementsByTagName("img");
+  const allImages = [...allImagesQ, ...allImagesO];
+  console.log("allImages " + i);
+  console.log(allImages);
 
-    let imageParts = [];
-    async function fileToGenerativePart1() {
-      
-      toDataURL(allImages[0].src)
-        .then((dataUrl) => {
+  let imageParts = [];
+  async function fileToGenerativePart1() {
+    toDataURL(allImages[0].src)
+      .then((dataUrl) => {
         let data = dataUrl;
         let base64EncodedDataPromise = data.split(",")[1];
         let fileType = data.split(",")[0].split(":")[1].split(";")[0];
         let a = {
-            inlineData: { data: base64EncodedDataPromise, mimeType: fileType },
+          inlineData: { data: base64EncodedDataPromise, mimeType: fileType },
         };
         imageParts.push(a);
-        if(allImages.length>1){
+        if (allImages.length > 1) {
           for (let j = 1; j < allImages.length; j++) {
-            toDataURL(allImages[j].src)
-            .then((dataUrl) => {
-            let data = dataUrl;
-            let base64EncodedDataPromise = data.split(",")[1];
-            let fileType = data.split(",")[0].split(":")[1].split(";")[0];
-            let a = {
-              inlineData: { data: base64EncodedDataPromise, mimeType: fileType },
-            };
-            imageParts.push(a);})
+            toDataURL(allImages[j].src).then((dataUrl) => {
+              let data = dataUrl;
+              let base64EncodedDataPromise = data.split(",")[1];
+              let fileType = data.split(",")[0].split(":")[1].split(";")[0];
+              let a = {
+                inlineData: {
+                  data: base64EncodedDataPromise,
+                  mimeType: fileType,
+                },
+              };
+              imageParts.push(a);
+            });
           }
         }
-        })
-        .then(() => {
+      })
+      .then(() => {
         console.log("HI");
         run();
-        });
-    }
-  if(allImages.length){
-    fileToGenerativePart1();}
-  else{
+      });
+  }
+  if (allImages.length) {
+    fileToGenerativePart1();
+  } else {
     run();
   }
   async function run() {
-    const prompt = elements.innerText + elements1.innerText;
+    const prompt = p1 + p2;
 
     console.log("imageParts");
     console.log(imageParts);
-    let result;
-    if(allImages.length){
-      result = await model.generateContent([prompt, ...imageParts]);}
-    else{
-      result = await model.generateContent(prompt);
-    }
+    const result = await model.generateContent([prompt, ...imageParts]);
     const response = await result.response;
     const text = response.text();
     console.log(text);
-  }
 
+    function bold(text){
+      var bold = /\*\*(.*?)\*\*/gm;
+      var html = text.replace(bold, '<strong> $1 </strong>');            
+      return html;
+  }
+      
+  var res = bold(text);
+
+    var output = document.createElement("DIV");
+    output.style.color = "white";
+    output.style.padding = "5px";
+    output.style.fontFamily = "Roboto";
+    elements[i].appendChild(output);
+
+    var out = document.createElement("DIV");
+    out.textContent = "Gemini response";
+    out.style.padding = "5px";
+    out.style.backgroundColor = "#131314";
+    out.style.borderTopLeftRadius = "10px";
+    out.style.borderTopRightRadius = "10px";
+    output.appendChild(out);
+
+    var outVal = document.createElement("DIV");
+    outVal.style.backgroundColor = "#282A2C";
+    outVal.style.padding = "5px";
+    outVal.style.borderBottomLeftRadius = "10px";
+    outVal.style.borderBottomRightRadius = "10px";
+    outVal.innerHTML = res;
+    output.appendChild(outVal);
+  }
 }
