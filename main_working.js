@@ -26,7 +26,7 @@ if (elements1.length) {
 // }
 
 
-var allImages = elements[0].getElementsByTagName("img");
+var allImages = document.querySelector("img");
   let imageParts = [];
   const toDataURL = url => fetch(url)
   .then(response => response.blob())
@@ -36,27 +36,25 @@ var allImages = elements[0].getElementsByTagName("img");
     reader.onerror = reject
     reader.readAsDataURL(blob)
   }))
-  async function fileToGenerativePart(img) {
-    console.log("img")
-    console.log(img)
-    toDataURL(img.src).then((dataUrl) => {
-      let data = dataUrl;
-      let base64EncodedDataPromise = data.split(",")[1];
-      let fileType = data.split(",")[0].split(":")[1].split(";")[0];
-      let a = {
-        inlineData: { data: base64EncodedDataPromise, mimeType: fileType },
-      };
-      imageParts.push(a);
-    });
-  }
-  for (let i = 0; i < allImages.length; i++) {
-    fileToGenerativePart(allImages[i]);
-  }
+  async function fileToGenerativePart() {
+    
+    toDataURL(allImages.src)
+     .then(dataUrl => {
+        let data = dataUrl;
+        let base64EncodedDataPromise = data.split(',')[1];
+        let fileType = data.split(',')[0].split(':')[1].split(';')[0];
+        let a= {
+            inlineData: { data:base64EncodedDataPromise, mimeType: fileType },
+          };
+        imageParts.push(a);
+     })
+}
+  fileToGenerativePart()
 
-  var textContent = elements[i].innerText;
+  var textContent = elements[0].innerText;
   console.log(textContent);
 
-  var textContent1 = elements1[i].innerText;
+  var textContent1 = elements1[0].innerText;
   console.log(textContent1);
 
   async function run() {
@@ -82,7 +80,7 @@ var allImages = elements[0].getElementsByTagName("img");
     textBox.style.fontWeight = "bold";
 
     textBox.style.fontFamily = "sans-serif";
-    elements[i].appendChild(textBox);
+    elements[0].appendChild(textBox);
   }
 
   run();
