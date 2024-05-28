@@ -72,7 +72,4 @@ for (let i = 0; i < elements.length; i++) {
     const text = response.text();
     console.log(text);
   }
-
-  let a = document.getElementById("asd");
-  a.onclick = run;
 }
