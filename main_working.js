@@ -92,7 +92,7 @@ for (let i = 0; i < elements.length; i++) {
 
     function bold(text) {
       var bold = /\*\*(.*?)\*\*/gm;
-      var html = text.replace(bold, "<strong> $1 </strong>");
+      var html = text.replace(bold, "<strong font-weight='600'> $1 </strong>");
       return html;
     }
 
@@ -105,9 +105,13 @@ for (let i = 0; i < elements.length; i++) {
     output.style.fontFamily = "Roboto";
     elements[i].appendChild(output);
 
+
+
     var out = document.createElement("DIV");
-    out.textContent = "Gemini response";
-    out.style.padding = "5px";
+    out.innerHTML = "<img height='29.6px'alt='gemini-logo' src='https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg'></img><p style='margin-bottom: 0px;'>Gemini Response</p>";
+    out.style.display = "flex";
+    out.style.fontSize = "24px";
+    out.style.padding = "10px";
     out.style.backgroundColor = "#131314";
     out.style.borderTopLeftRadius = "10px";
     out.style.borderTopRightRadius = "10px";
@@ -115,7 +119,7 @@ for (let i = 0; i < elements.length; i++) {
 
     var outVal = document.createElement("DIV");
     outVal.style.backgroundColor = "#282A2C";
-    outVal.style.padding = "5px";
+    outVal.style.padding = "10px";
     outVal.style.borderBottomLeftRadius = "10px";
     outVal.style.borderBottomRightRadius = "10px";
     outVal.innerHTML = res;
