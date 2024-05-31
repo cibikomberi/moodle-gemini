@@ -1,34 +1,48 @@
-document.getElementById("myBtn").addEventListener("click", insertAPI);
+document.getElementById("myBtn").addEventListener("click", insertAPIkey);
+document.getElementById("Faster").addEventListener("click", insertModel);
+document.getElementById("Accurate").addEventListener("click", insertModel);
 
-function insertAPI(){
-    let api = document.getElementById("inp").value;
-    chrome.storage.sync.set({ key: api }).then(() => {
-        console.log("Value is set");
-      });
-      
-      chrome.storage.sync.get(["key"]).then((result) => {
-        
-      });
+function insertAPIkey() {
+  let api = document.getElementById("inp").value;
+  chrome.storage.sync.set({ key: api }).then(() => {
+    console.log("Value is set");
+  });
 }
 
-
- chrome.identity.getProfileUserInfo(function(userInfo) {
-  // Use userInfo.email or userInfo.id
-  // They will be empty if the user is not signed in to Chrome
-  let email = "unknown user.bit"
-  email = userInfo.email;
-  email = email.substring(0, email.lastIndexOf("@"));
-
-  while(email.lastIndexOf(".") != -1){
-    email = email.substring(0, email.lastIndexOf("."));
+function insertModel() {
+  if (document.getElementById("Accurate").checked) {
+    chrome.storage.sync.set({ model: "Accurate" }).then(() => {
+      console.log("Value is set as Accurate");
+    });
   }
-  //email = email.substring(0, email.lastIndexOf("."));
-  email=email.toLocaleUpperCase();
-console.log(email);
-let yt = document.getElementById("3");
-yt.innerText =  email;
+  if (document.getElementById("Faster").checked) {
+    chrome.storage.sync.set({ model: "Faster" }).then(() => {
+      console.log("Value is set as Faster");
+    });
+  }
+}
+chrome.storage.sync.get(["key"]).then((result) => {
+  document.getElementById("inp").value = result.key;
+});
+chrome.storage.sync.get(["model"]).then((result) => {
+  console.log(result);
+  if (result.model === "Faster") {
+    document.getElementById("Faster").checked = true;
+  }
+  if (result.model === "Accurate") {
+    document.getElementById("Accurate").checked = true;
+  }
 });
 
-
-
-
+chrome.identity.getProfileUserInfo(function (userInfo) {
+  let email = "unknown user.bit";
+  email = userInfo.email;
+  email = email.substring(0, email.lastIndexOf("@"));
+  while (email.lastIndexOf(".") != -1) {
+    email = email.substring(0, email.lastIndexOf("."));
+  }
+  email = email.toLocaleUpperCase();
+  console.log(email);
+  let yt = document.getElementById("3");
+  yt.innerText = email;
+});

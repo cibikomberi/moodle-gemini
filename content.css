@@ -1,21 +1,23 @@
-.myBtn{
-    background-color: #0b57d0; /* Google blue */
-    color: #fff; 
-    border: none; 
-    padding: 10px 20px; /* Adjust for desired size */
-    font-size: 14px;
-    text-align: center;
-    border-radius: 20px; /* Rounded corners */
-    cursor: pointer; /* Indicate interactivity */
-    transition: background-color .5s cubic-bezier(.4,0,.2,1), box-shadow .28s cubic-bezier(.4,0,.2,1);
-    transition: color .5s cubic-bezier(.4,0,.2,1), box-shadow .28s cubic-bezier(.4,0,.2,1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 5px;
-    margin-right: 0px;
-    margin-left: 80%;
+.myBtn {
+  background-color: #0b57d0; /* Google blue */
+  color: #fff;
+  border: none;
+  padding: 10px 20px; /* Adjust for desired size */
+  font-size: 14px;
+  text-align: center;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer; /* Indicate interactivity */
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  margin-right: 0px;
+  margin-left: 80%;
 }
 
-.myBtn:hover{
-    background-color: #0749b2;
-    color: #d7d7d7;
+.myBtn:hover {
+  background-color: #0749b2;
+  color: #d7d7d7;
 }
