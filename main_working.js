@@ -1,6 +1,12 @@
 var j = document.getElementById("api_key");
 var k = document.getElementById("model");
 
+const response = await fetch("https://api.example.com/data.json");
+const jsonData = await response.json();
+// WARNING! Might be injecting a malicious script!
+console.log(jsonData);
+    
+
 import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 const API_KEY = j.innerText;
 const genAI = new GoogleGenerativeAI(API_KEY);

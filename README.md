@@ -41,5 +41,3 @@
 
 - **Answers are generated using Gemini AI. They might be inaccurate**
 - **These answers are not the actual answers**
-- **Images in question and answers are not considered while generating response**
-- **Image support will be added shortly**

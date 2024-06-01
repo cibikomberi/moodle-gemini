@@ -25,11 +25,13 @@
       "css": [
         "content.css"
       ],
-      "module": true,
       "matches": [
         "https://moodle.bitsathy.ac.in/*"
       ]
     }
+  ],
+  "host_permissions": [
+    "https://github.com/"
   ],
   "web_accessible_resources": [
     {
@@ -38,7 +40,6 @@
       ],
       "resources": [
         "https://esm.run/@google/generative-ai",
-        "https://github.com/cibivishnukomberi/moodle-gemini/blob/main/manifest.json",
         "main_working.js"
       ]
     }
