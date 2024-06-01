@@ -1,5 +1,5 @@
 var j = document.getElementById("api_key");
-var k = document.getElementById("model");    
+var k = document.getElementById("model");
 
 import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 const API_KEY = j.innerText;

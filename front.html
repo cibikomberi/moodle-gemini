@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'wasm-unsafe-eval' 'inline-speculation-rules' https://esm.run/@google/generative-ai; script-src-elem 'self' 'wasm-unsafe-eval' 'inline-speculation-rules' https://esm.run/@google/generative-ai;"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>moodle cracker</title>
     <link rel="stylesheet" href="style.css" />
@@ -11,15 +15,10 @@
     <p id="3" class="hu">UNKNOWN USER</p>
     <div class="d">
       <p id="2">Enter your API key</p>
-      <input
-        id="inp"
-        class="inp"
-        type="text"
-        name="first_name"
-        required
-      /><br />
-      <p id="5">Key status: </p>
-      <div style="margin-top: 20px;">
+      <input id="inp" class="inp" type="text" required /><br />
+      <p id="5">Key status:</p>
+      <button id="myBtn" class="myBtn" type="submit">Verify</button>
+      <div style="margin-top: 20px">
         <input
           type="radio"
           value="Faster"

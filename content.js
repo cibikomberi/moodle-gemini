@@ -19,89 +19,16 @@ chrome.storage.sync.get(["model"]).then((result) => {
 const script = document.createElement("script");
 script.setAttribute("type", "module");
 script.setAttribute("src", chrome.runtime.getURL("main_working.js"));
-const head =
-  document.head ||
-  document.getElementsByTagName("head")[0] ||
-  document.documentElement;
+const head = document.head;
 head.insertBefore(script, head.lastChild);
 
-
-// const response = await fetch("https://github.com/cibivishnukomberi/moodle-gemini/blob/main/update.json");
-// const jsonData = await response.json();
-// console.log(jsonData);
-
 fetch("https://cibivishnukomberi.github.io/moodle-gemini/update.json")
-.then((response ) =>response.json())
-.then((data) => {
-  console.log(data.latest);
-  if (chrome.runtime.getManifest().version < data.latest) {
-    if(confirm("Newer version available")){
-      window.open(data.url, '_blank');
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.latest);
+    if (chrome.runtime.getManifest().version < data.latest) {
+      if (confirm("Newer version available")) {
+        window.open(data.url, "_blank");
+      }
     }
-  }
-
-})
-console.log(chrome.runtime.getManifest().version);
-
-// fetch('https://raw.githubusercontent.com/cibivishnukomberi/moodle-gemini/main/updates.xml')
-//   .then(response => response.text())
-//   .then(xml => {
-//     // Parse XML to extract update URL
-//     const parser = new DOMParser();
-//     const xmlDoc = parser.parseFromString(xml, 'text/xml');
-//     const updateUrl = xmlDoc.getElementsByTagName('updatecheck')[0].getAttribute('codebase');
-
-//     // Update the extension's update URL dynamically
-//     chrome.runtime.setUpdateUrlData(updateUrl );
-//   }).then(console.log("hi"))
-//   .catch(error => {
-//     console.error('Error fetching update manifest:', error);
-//   });
-
-// function initiateUpdate(updateUrl) {
-//   // Fetch the updated extension package (ZIP file)
-//   fetch(updateUrl)
-//     .then(response => response.blob())
-//     .then(zipBlob => {
-//       // Extract the extension package
-//       return new Promise((resolve, reject) => {
-//         const zip = new JSZip();
-//         zip.loadAsync(zipBlob)
-//           .then(zip => {
-//             // Extract files to a temporary directory
-//             const tempDir = 'temp/';
-//             zip.forEach((relativePath, zipEntry) => {
-//               zip.extract(zipEntry, tempDir + relativePath);
-//             });
-//             resolve(tempDir);
-//           })
-//           .catch(error => {
-//             reject(error);
-//           });
-//       });
-//     })
-//     .then(tempDir => {
-//       // Update the extension by replacing existing files with the new ones
-//       // Example: Copy files from the temporary directory to the extension directory
-//       // Note: You need appropriate permissions to modify extension files.
-//       // This might not be possible in some cases due to Chrome's security restrictions.
-//       // You may need to consider alternative approaches.
-//       chrome.runtime.getPackageDirectoryEntry(directoryEntry => {
-//         const tempDirEntry = directoryEntry.getDirectory(tempDir, { create: false });
-//         tempDirEntry.getFiles(files => {
-//           files.forEach(file => {
-//             // Copy each file from the temporary directory to the extension directory
-//             file.copyTo(directoryEntry, file.name, () => {
-//               // Optional: Inform the user that the extension has been updated
-//               console.log('Extension updated successfully.');
-//             });
-//           });
-//         });
-//       });
-//     })
-//     .catch(error => {
-//       console.error('Error updating extension:', error);
-//     });
-// }
-
-// initiateUpdate("https://raw.githubusercontent.com/cibivishnukomberi/moodle-gemini/main/updates.xml")
+  });

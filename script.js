@@ -1,18 +1,24 @@
 document.getElementById("Faster").addEventListener("click", insertModel);
 document.getElementById("Accurate").addEventListener("click", insertModel);
-document.getElementById("inp").addEventListener("onchange", insertAPIkey);
-import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
-
+document.getElementById("myBtn").addEventListener("click", insertAPIkey);
+import { GoogleGenerativeAI } from "./gen.js";
 
 async function insertAPIkey() {
-  try{
   let api = document.getElementById("inp").value;
-  const genAI = new GoogleGenerativeAI(api);
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-  const result = await model.generateContent(prompt);
-  document.getElementById("5").innerText += " Verified"
-  }catch{
-    document.getElementById("5").innerText += " Not Verified"
+  console.log(api);
+  document.getElementById("5").innerText = " Key status: ...";
+  try {
+    console.log("hi");
+    const genAI = new GoogleGenerativeAI(api);
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const result = await model.generateContent("hi");
+    console.log(result);
+    document.getElementById("5").innerHTML =
+      " Key status:<img style='height:15px;' src='images/check.svg' /> Verified";
+  } catch (error) {
+    console.log(error);
+    document.getElementById("5").innerHTML =
+      " Key status:<img style='height:15px;' src='images/close.svg' /> Not Verified";
   }
   chrome.storage.sync.set({ key: api }).then(() => {
     console.log("Value is set");
@@ -35,7 +41,6 @@ chrome.storage.sync.get(["key"]).then((result) => {
   document.getElementById("inp").value = result.key;
 });
 chrome.storage.sync.get(["model"]).then((result) => {
-  console.log(result);
   if (result.model === "Faster") {
     document.getElementById("Faster").checked = true;
   }
