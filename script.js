@@ -1,9 +1,19 @@
-document.getElementById("myBtn").addEventListener("click", insertAPIkey);
 document.getElementById("Faster").addEventListener("click", insertModel);
 document.getElementById("Accurate").addEventListener("click", insertModel);
+document.getElementById("inp").addEventListener("onchange", insertAPIkey);
+import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-function insertAPIkey() {
+
+async function insertAPIkey() {
+  try{
   let api = document.getElementById("inp").value;
+  const genAI = new GoogleGenerativeAI(api);
+  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const result = await model.generateContent(prompt);
+  document.getElementById("5").innerText += " Verified"
+  }catch{
+    document.getElementById("5").innerText += " Not Verified"
+  }
   chrome.storage.sync.set({ key: api }).then(() => {
     console.log("Value is set");
   });

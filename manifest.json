@@ -1,6 +1,6 @@
 {
   "name": "moodle-gemini",
-  "version": "1.0",
+  "version": "2.0",
   "description": "answers for moodle",
   "manifest_version": 3,
   "key": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDWAHQyY8c3+sPj/cSg9qsDEkobgPsrmzhtsNOHc4QYpNlke2jYTxDZdnlrssjU8fJfNTsw6MhHqd2ZWYZt0LrfAv6L3NGRxOzzFZRy9W8Cj6NkDtFObt7UDF5CF6Ot6w0j3q0tmcNnG46pADOZmjWPH7dYEdAJxLLPxmiNqbqkotvJb1PX1MNKyLVXbcmNhrAz1HHzPwqMy5caAdytKnoujtgIzYWen9SV7ydvF81Qbfr8gEpbn1wBwoVDExljegU0x17am1+KbgmF6W2tCaM3UkGXlZz7p/xlW+jMmF5/8Np6o4SPDzu64t1JXry05ZXiDbrPtgAondBrSzxz/pcZAgMBAAECggEACTM8y5vJiUkRGeCjju373SZwpC0P30iNjP2wol6fe7W+mNjLYZ1IkqjKwIwPoUQDkP9HW6tuTNJrMfgM1PTHy+Wjjty/773hF/RCDQ0rKBeHxTnz2qTelIwxkzLT+RqlVnjwxgiZw3mGURKupThhfBU3eyRM5tabf14+yXRWD1TS8PsolAJzjTDYNV9IGgf77jbXMPTxdNrOINkN4Sza/HeKuBkp4BnLmCTSugqXLyS7/26ghWmRIbGvMSfaL5UZqcGFqnw3uw85ynhcJBFDv1PLBKaA0Wg9cxVx2pdPUwryAkweIqL3ykl1Ezn8TjX2NutkjaiGDGjwwYnHKPJGtwKBgQDrLCiwsJKIs0FxuFzkzENx1L/6CBVZ6PWqusexldJ60qeMh0CAqqJy8MwxuH2JZZi7CGH6Q/nLe+7PGIGgPkuxzGOQyD8jGLHxDTUYRbiZ26MYJrWZS22v+8eUy1mP3pOWhlLmkl7dUu5CEUxqMwqtaIlALAnwgwKCxnZaejk9SwKBgQDo9E+3zxNid4JpiTcDEvBKkvtx5RAe31NbqZSCNKuevqqg5wHp/Sa0j5wuA4hkA+r/hKqbI8TFbOcHoy6KUudAHOnJQWQqs4WXv+FMsAOA98d7LN0nuQkziFhpQ1Tk2/HoqalNpKKzbbPhcAlHW+WACoV7Impw37aL4qjAeR4yqwKBgDGKle/S4qulh43bVsZkOXkLZn3XohfUuZwDyPmiJDr3kZBLFc2FJL+t9nYq9VcybeBIvcso8sBpFT/PW89UEEIeWoMvjA1qsGGldJ/uYBsZZ9w4m1z1xN+j3MF9rRpfuxukpGYqQ43AYKzOVBizM/af5Pn9zQI7txWxlVEuGkzNAoGAYcoFGNzlf0U5yoGeRT0S/8sZoGMO1FbdUDIstEfV70qMqASxKf9p2wwZ/Lrg61M1t9OCJqPqOxIPHYajx88rYh+BCEnZ+Y7oup4CvsV4gxAAfjWEFOO4+Bf5PR7VqUinEQr/lidRYU7g3va//mOWQJyqEdmNoxpWL/yS6FEvmwcCgYEAjU31CX01EF6P8Te7GBnAVDgJh1Y/wqcoLfQouiBTxHDcoTsaDlzHmtNu+/VHEHf9ugNFGxLxmOqsqvLtww8fAcE4yyuA9MDjinE2OYdm3yu2jDUv+WLyaY+gqbEXLjP2rsXXJlvG2c9ai3lV/gUnFQPF5O97r4HIEHngqgjb8aw=",
@@ -43,5 +43,6 @@
         "main_working.js"
       ]
     }
-  ]
-}
+  ],"content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://esm.run/@google/generative-ai;"
+}}

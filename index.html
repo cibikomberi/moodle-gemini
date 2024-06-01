@@ -1,11 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>moodle-gemini</title>
-</head>
-<body>
-    hi
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Extension Name</title>
+  </head>
+  <body>
+    <style>
+      /* Basic styles */
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1,
+      h2 {
+        margin: 1rem 0;
+      }
+
+      p {
+        margin: 0.5rem 0;
+      }
+
+      /* Layout styles */
+      header {
+        background-color: #f0f0f0;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem;
+      }
+
+      .download,
+      .description {
+        flex: 1 1 50%;
+        background-color: #fff;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 0.5rem;
+      }
+
+      .download a,
+      .description a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .download a:hover,
+      .description a:hover {
+        text-decoration: underline;
+      }
+
+      /* Buttons */
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+
+      button:hover {
+        background-color: #0069d9;
+      }
+    </style>
+    <header>
+      <h1>Moodle - Gemini</h1>
+    </header>
+    <main>
+      <section class="description">
+        <h2>Description</h2>
+        <p>
+          &emsp;Stop wasting time switching tabs and searching online! The
+          Gemini Answer Finder extension seamlessly integrates with your
+          browser, allowing you to right-click on any text and get a clear,
+          concise answer directly on the page.<br />
+          &emsp;Powered by the cutting-edge Gemini AI technology, this extension
+          analyzes your selected text and retrieves relevant information. No
+          more jumping between websites - the answer pops up right next to the
+          text you're interested in. Save time, stay focused, and get the
+          answers you need right where you need them.
+        </p>
+      </section>
+      <section class="download">
+        <h2>Download Extension</h2>
+        <a
+          href="https://codeload.github.com/cibivishnukomberi/moodle-gemini/zip/refs/heads/main"
+          >Download Now</a
+        >
+      </section>
+      <section class="download">
+        <h2>Read this to use</h2>
+        <a
+          href="https://github.com/cibivishnukomberi/moodle-gemini?tab=readme-ov-file#quick-start"
+          >README</a
+        >
+      </section>
+    </main>
+  </body>
 </html>
