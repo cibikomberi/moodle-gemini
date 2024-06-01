@@ -25,6 +25,24 @@ const head =
   document.documentElement;
 head.insertBefore(script, head.lastChild);
 
+
+// const response = await fetch("https://github.com/cibivishnukomberi/moodle-gemini/blob/main/update.json");
+// const jsonData = await response.json();
+// console.log(jsonData);
+
+fetch("https://cibivishnukomberi.github.io/moodle-gemini/update.json")
+.then((response ) =>response.json())
+.then((data) => {
+  console.log(data.latest);
+  if (chrome.runtime.getManifest().version < data.latest) {
+    if(confirm("Newer version available")){
+      window.open(data.url, '_blank');
+    }
+  }
+
+})
+console.log(chrome.runtime.getManifest().version);
+
 // fetch('https://raw.githubusercontent.com/cibivishnukomberi/moodle-gemini/main/updates.xml')
 //   .then(response => response.text())
 //   .then(xml => {
