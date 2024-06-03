@@ -1,5 +1,3 @@
-"use strict";
-
 chrome.storage.sync.get(["key"]).then((result) => {
   const ui = document.createElement("p");
   ui.textContent = result.key;
@@ -32,3 +30,4 @@ fetch("https://cibivishnukomberi.github.io/moodle-gemini/update.json")
       }
     }
   });
+
