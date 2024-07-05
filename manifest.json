@@ -12,7 +12,6 @@
     "scripting",
     "storage",
     "tabs",
-    "idle",
     "identity",
     "identity.email",
     "cookies"
@@ -26,10 +25,11 @@
         "content.css"
       ],
       "matches": [
-        "https://moodle.bitsathy.ac.in/*"
+        "https://moodle.bitsathy.ac.in/*","https://janaticselearning.com/*"
       ]
     }
   ],
+  "background":[],
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {

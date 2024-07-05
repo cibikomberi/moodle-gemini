@@ -2,6 +2,7 @@ body {
   background-color: #1f1f1f;
   font-family: "Google Sans", sans-serif;
   font-size: 20px;
+  max-width: 100vw;
 }
 
 h4 {

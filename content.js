@@ -20,14 +20,14 @@ script.setAttribute("src", chrome.runtime.getURL("main_working.js"));
 const head = document.head;
 head.insertBefore(script, head.lastChild);
 
-fetch("https://cibivishnukomberi.github.io/moodle-gemini/update.json")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data.latest);
-    if (chrome.runtime.getManifest().version < data.latest) {
-      if (confirm("Newer version available")) {
-        window.open(data.url, "_blank");
-      }
-    }
-  });
+// fetch("https://cibivishnukomberi.github.io/moodle-gemini/update.json")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data.latest);
+//     if (chrome.runtime.getManifest().version < data.latest) {
+//       if (confirm("Newer version available")) {
+//         window.open(data.url, "_blank");
+//       }
+//     }
+//   });
 
