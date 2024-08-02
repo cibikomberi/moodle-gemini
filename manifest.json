@@ -14,7 +14,9 @@
     "tabs",
     "identity",
     "identity.email",
-    "cookies"
+    "cookies",
+    "webRequest",
+    "declarativeNetRequestWithHostAccess"
   ],
   "content_scripts": [
     {
@@ -29,7 +31,6 @@
       ]
     }
   ],
-  "background":[],
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
@@ -37,9 +38,12 @@
         "<all_urls>"
       ],
       "resources": [
-        "https://esm.run/@google/generative-ai",
-        "main_working.js"
+        "gen.js",
+        "main_working.js",
+        "iframer.html",
+        "https://chatgpt.com"
       ]
     }
-  ]
+  ],
+  "background": {"service_worker": "bg.js"}
 }

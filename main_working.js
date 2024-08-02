@@ -1,7 +1,8 @@
 var j = document.getElementById("api_key");
 var k = document.getElementById("model");
 
-import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+import { GoogleGenerativeAI } from "./gen.js";
+
 const API_KEY = j.innerText;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
