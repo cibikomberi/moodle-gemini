@@ -97,7 +97,7 @@ for (let i = 0; i < elements.length; i++) {
         var bold = /\*\*(.*?)\*\*/gm;
         var html = text.replace(
           bold,
-          "<strong font-weight='600'> $1 </strong>"
+          "<strong font-weight='500'> $1 </strong>"
         );
         return html;
       }
