@@ -44,6 +44,5 @@
         "https://chatgpt.com"
       ]
     }
-  ],
-  "background": {"service_worker": "bg.js"}
+  ]
 }
