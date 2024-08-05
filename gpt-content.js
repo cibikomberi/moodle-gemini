@@ -39,11 +39,29 @@ function onWindowLoad() {
 			}
 		
 		if(!sent && completed && !start ){
-			console.log("sent:" + document.querySelector('.w-full:last-child > .text-base').innerText);
+			var i=2;
+			var lastQ;
+			var lastA;
+			while (true) {
+				var f = document.querySelector(`[data-testid="conversation-turn-${i}"] > .text-base`);
+				if (f === null) {
+					console.log(i);
+					
+					lastQ =  document.querySelector(`[data-testid="conversation-turn-${i-2}"] > .text-base`).innerText;
+					lastA =  document.querySelector(`[data-testid="conversation-turn-${i-1}"] > .text-base`).innerText;
+					break;
+				}
+				i++;
+			}
+			console.log(lastQ);
+			console.log(questionsList[0]);
 			
-			port.postMessage({q:questionsList[0] , answer:document.querySelector('.w-full:last-child > .text-base').innerText});
+			if(lastQ.trim() == questionsList[0].trim()){
+			console.log("sent: " + lastA);
+			
+			port.postMessage({q:questionsList[0] , answer:lastA});
 			questionsList.splice(0,1);
-			sent = true;
+			sent = true;}
 		}
 		if(completed && questionsList.length > 0 && sent){
 			submitted = true;

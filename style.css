@@ -128,3 +128,8 @@ label img {
     visibility: visible;
   }
 }
+
+.warning{
+  color: #E9D502;
+  font-size: small;
+}

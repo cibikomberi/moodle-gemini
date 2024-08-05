@@ -1,37 +1,11 @@
-// Create a new tab in the background
+
 
 let questionsList = []
 let answersList = [{q:"hi",a:"hi"}]
 let GPTalive = false
 let GPTlastAlive = false
 let GPTa = 0
-// chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-//   if(tabId === gptTabId && changeInfo.status === 'complete'){
-//       handleQuestion();
-//   }
-// })
-// function handleQuestion(){
-//   console.log("ready to answer");
-// }
 
-// chrome.runtime.onMessage.addListener(
-//     function(request, sender, sendResponse) {
-
-//       chrome.windows.getCurrent(function(winCurrent){
-//         chrome.windows.create({url:'https://chatgpt.com'}, function(tab){
-//             chrome.windows.update(winCurrent.id, {focused: true});
-//             gptTabId = tab.id + 1;
-//         });
-//     });
-
-
-//       if (request.greeting === "hello")
-//         sendResponse({farewell: "goodbye"});
-//     }
-//   );
-
-
-// background.js
 
 chrome.runtime.onConnect.addListener(function (port) {
 	if (port.name === "gpt") {
