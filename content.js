@@ -96,3 +96,12 @@ function invokeGPT() {
 		}
 	}
 }
+
+setInterval(() => {
+	chrome.runtime.sendMessage({ type: 'keepAlive' }, response => {
+	  if (response && response.status === 'ok') {
+		console.log('Keep-alive message acknowledged.');
+	  }
+	});
+  }, 10000); 
+  

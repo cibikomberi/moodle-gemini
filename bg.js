@@ -35,12 +35,8 @@ chrome.runtime.onConnect.addListener(function (port) {
 		port.onMessage.addListener(function (msg) {
 			
 			if (!GPTalive) {
-				chrome.windows.getCurrent(function (winCurrent) {
-					chrome.windows.create({ url: 'https://chatgpt.com' }, function (tab) {
-						chrome.windows.update(winCurrent.id, { focused: true });
-						gptTabId = tab.id + 1;
+					chrome.tabs.create({ url: 'https://chatgpt.com' ,active : false}, function (tab) {
 					});
-				});
 				GPTalive = true;
 			}
 
@@ -64,3 +60,14 @@ setInterval(() => {
 		GPTalive = false;
 	}
 }, 10000);
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+	if (message.type === 'keepAlive') {
+	  console.log('Received keep-alive message.');
+	  fetch('https://example.com')
+		.then(response => console.log('Fetched keep-alive resource:', response))
+		.catch(error => console.error('Keep-alive fetch error:', error));
+	  sendResponse({ status: 'ok' });
+	}
+  });
+  
