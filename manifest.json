@@ -1,11 +1,11 @@
 {
   "name": "moodle-gemini",
-  "version": "2.0",
-  "description": "answers for moodle",
+  "version": "2.1",
+  "description": "Your AI assistant for moodle tests",
   "manifest_version": 3,
   "action": {
-    "default_popup": "front.html",
-    "default_name": "moodle cracker"
+    "default_popup": "popup.html",
+    "default_name": "answers for moodle"
   },
   "permissions": [
     "activeTab",
@@ -29,8 +29,12 @@
       "matches": [
         "https://moodle.bitsathy.ac.in/*","https://janaticselearning.com/*"
       ]
+    },{
+      "js":["gpt-content.js"],
+      "matches":["https://chatgpt.com/*"]
     }
   ],
+"background": {"service_worker": "bg.js"},
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
