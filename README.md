@@ -1,43 +1,69 @@
-# Quick start
 
-## For Windows
+# BIT Formative Assessment Helper
 
-- **Download as zip and extract it**  
-  ![click on extensions](./images/0.png)
+This extension fetches answers for formative assessments for Bannari Amman Institute of Technology and displays them directly in the browser.
 
-- **Go to Extension Settings in your browser**  
-  ![Extension Settings](./images/1.png)
+## Features:
+- Fetches formative assessment answers automatically.
+- Easy to use – just input your API key once.
+- Works on desktop and mobile browsers.
 
-- **Enable Developer mode**  
-  ![Developer mode](./images/2.png)
+---
 
-- **Select load unpacked**  
-  ![load unpacked](./images/3.png)
+## How to get API key
 
-- **Get an API key from https://aistudio.google.com/app/apikey and copy the API key**  
-  ![API key generation](./images/4.png)
+## How to Get Your API Key 
+ 1. **Visit the API Key Generation Page:** - Open your browser and go to the following URL: [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey). 
+ 
+ 2. **Sign In:** - If you're not already signed in, log in using your Google account.
+ 
+ 3. **Create a New API Key:** - Once you're signed in, you will see an option to **Create New API Key**. - Click the button and follow the prompts to generate your API key. 
+ 
+ 5. **Copy the API Key:** - After the key is generated, you will see it displayed on the screen. - Copy the API key to your clipboard.
 
-- **Insert the API key in the text field**  
-  ![Text field for API key](./images/5.png)
+## How to Install the Extension on Edge Canary for Mobile
 
-## For Android
+### Prerequisites:
+1. **Edge Canary** should be installed on your mobile device. You can download it from the Google Play Store.
+2. Make sure you have the **API key** .
 
-- **Install Kiwi browser or any other browser with extension support**  
-  ![click on extensions](./images/A1.jpg)
+### Step-by-Step Installation Instructions:
 
-- **Download as zip**  
-  ![Extension Settings](./images/A2.jpg)
+1. **Download the Extension:**
+   - Download the extension's `.crx` file to your mobile device.
 
-- **Select +(from .zip) and select the downloaded zip file**  
-  ![New extension options](./images/A3.jpg)
+3. **Open Edge Canary Browser:**
+   - Launch the **Edge Canary** browser on your mobile device.
 
-- **Get an API key from https://aistudio.google.com/app/apikey and copy the API key**  
-  ![API key generation](./images/4.png)
+4. **Enable Developer Mode:**
+    - Scroll down to **Settings**.
+   - Enable **Developer Mode**  by tapping the build number 7 times on the **About Section**.
 
-- **Insert the API key in the text field**  
-  ![Text field for API key](./images/A4.jpg)
+5. **Load the Extension:**
+   - Go to **Developer options ** and then select **Extension install by crx**.
+   - Navigate to the folder where you downloaded the `.crx` file.
+   - Select the file and confirm.
 
-# Disclaimer
+6. **Configure the Extension:**
+   - After the extension is loaded, you will see the icon appear in the browser toolbar.
+   - Tap on the icon to open the extension popup.
+   - Enter your API key in the provided field and save it.
 
-- **Answers are generated using Gemini AI. They might be inaccurate**
-- **These answers are not the actual answers**
+7. **Using the Extension:**
+   - Once the API key is saved, the extension will automatically fetch answers when you visit the formative assessment page on your college website.
+
+### Troubleshooting:
+- If the extension doesn’t load properly, ensure **Developer Mode** is enabled and the files were extracted correctly.
+- Make sure you're using the latest version of **Edge Canary**.
+
+---
+
+## FAQ:
+
+1. **How do I get my API key?**
+   - You can get your free API key from  [https://aistudio.google.com/app/apikey]
+
+2. **Can I use the extension on other browsers?**
+   - This extension is optimized for **Edge Canary** on mobile. However, you can try it on other Chromium-based browsers that support extensions.
+ 
+---

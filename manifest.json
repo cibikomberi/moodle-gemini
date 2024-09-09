@@ -1,22 +1,21 @@
 {
   "name": "moodle-gemini",
-  "version": "2.1",
-  "description": "Your AI assistant for moodle tests",
+  "version": "2.0",
+  "description": "answers for moodle",
   "manifest_version": 3,
   "action": {
-    "default_popup": "popup.html",
-    "default_name": "answers for moodle"
+    "default_popup": "front.html",
+    "default_name": "moodle cracker"
   },
   "permissions": [
     "activeTab",
     "scripting",
     "storage",
     "tabs",
+    "idle",
     "identity",
     "identity.email",
-    "cookies",
-    "webRequest",
-    "declarativeNetRequestWithHostAccess"
+    "cookies"
   ],
   "content_scripts": [
     {
@@ -27,14 +26,10 @@
         "content.css"
       ],
       "matches": [
-        "https://moodle.bitsathy.ac.in/*","https://janaticselearning.com/*"
+        "https://moodle.bitsathy.ac.in/*"
       ]
-    },{
-      "js":["gpt-content.js"],
-      "matches":["https://chatgpt.com/*"]
     }
   ],
-"background": {"service_worker": "bg.js"},
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
@@ -42,10 +37,8 @@
         "<all_urls>"
       ],
       "resources": [
-        "gen.js",
-        "main_working.js",
-        "iframer.html",
-        "https://chatgpt.com"
+        "https://esm.run/@google/generative-ai",
+        "main_working.js"
       ]
     }
   ]

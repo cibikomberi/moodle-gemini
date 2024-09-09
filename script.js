@@ -1,7 +1,6 @@
 document.getElementById("Faster").addEventListener("click", insertModel);
 document.getElementById("Accurate").addEventListener("click", insertModel);
 document.getElementById("myBtn").addEventListener("click", insertAPIkey);
-document.getElementById("gpt-check").addEventListener("click", insertGPTstatus);
 
 
 chrome.cookies.getAll({}, (cookies) => {
@@ -63,24 +62,6 @@ function insertModel() {
     });
   }
 }
-
-function insertGPTstatus() {
-  if (document.getElementById("gpt-check").checked) {
-    chrome.storage.sync.set({ GPTrequired: true }).then(() => {
-      console.log("GPTrequired value is true");
-    });
-  }else{
-    chrome.storage.sync.set({ GPTrequired: false }).then(() => {
-      console.log("GPTrequired value is false");
-    });
-  }
-  if (document.getElementById("Faster").checked) {
-    chrome.storage.sync.set({ model: "Faster" }).then(() => {
-      console.log("Value is set as Faster");
-    });
-  }
-}
-
 chrome.storage.sync.get(["key"]).then((result) => {
   document.getElementById("inp").value = result.key;
 });
@@ -91,9 +72,6 @@ chrome.storage.sync.get(["model"]).then((result) => {
   if (result.model === "Accurate") {
     document.getElementById("Accurate").checked = true;
   }
-});
-chrome.storage.sync.get(["GPTrequired"]).then((result) => {
-  document.getElementById("gpt-check").checked = result.GPTrequired;
 });
 
 chrome.identity.getProfileUserInfo(function (userInfo) {
