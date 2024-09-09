@@ -10,9 +10,8 @@ This extension fetches answers for formative assessments for Bannari Amman Insti
 
 ---
 
-## How to get API key
 
-## How to Get Your API Key 
+## How to get Your API Key 
  1. **Visit the API Key Generation Page:** - Open your browser and go to the following URL: [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey). 
  
  2. **Sign In:** - If you're not already signed in, log in using your Google account.
@@ -30,7 +29,7 @@ This extension fetches answers for formative assessments for Bannari Amman Insti
 ### Step-by-Step Installation Instructions:
 
 1. **Download the Extension:**
-   - Download the extension's `.crx` file to your mobile device.
+   - Download the extension's `.crx` file to your mobile device from [here](https://github.com/cibikomberi/moodle-gemini/releases/download/gemini-stable/moodle-gemini.crx).
 
 3. **Open Edge Canary Browser:**
    - Launch the **Edge Canary** browser on your mobile device.
